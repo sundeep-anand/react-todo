@@ -1,8 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { FormattedMessage, FormattedDate } from 'react-intl'
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { Context } from '../LangWrapper';
+import { FormattedMessage, FormattedDate } from 'react-intl';
 
 export default function Header(props) {
+
+    const context = useContext(Context);
+
     return (
         <header style={headerStyle} >
             <h1>
@@ -19,7 +23,11 @@ export default function Header(props) {
                 month="long"
                 day="numeric"
                 weekday="long"
-            />
+            /><br/>
+            <select value={context.locale} onChange={context.selectLang}>
+                <option value="en-US">English</option>
+                <option value="es-MX">Spanish</option>
+            </select>
         </header>
     )
 }
