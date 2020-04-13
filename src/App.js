@@ -87,7 +87,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="container">
-            <Header />
+            <Header date={Date.now()} />
             <Route exact path="/" render={props => (
               <React.Fragment>
                 <AddTodo addTodo={this.addTodo} />

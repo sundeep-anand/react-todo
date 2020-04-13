@@ -1,12 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { FormattedMessage, FormattedDate } from 'react-intl'
 
-export default function Header() {
+export default function Header(props) {
     return (
         <header style={headerStyle} >
-            <h1>TodoList</h1>
+            <h1>
+                <FormattedMessage 
+                    id="app.header"
+                    defaultMessage="TodoList"
+                /></h1>
             <Link style={linkStyle} to="/">Home</Link> | {' '}
             <Link style={linkStyle} to="/about">About</Link>
+            <br/>
+            <FormattedDate 
+                value={props.date}
+                year="numeric"
+                month="long"
+                day="numeric"
+                weekday="long"
+            />
         </header>
     )
 }
